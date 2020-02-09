@@ -24,7 +24,10 @@ Kenzie Assignment: String2
 
 def verbing(s):
     # your code here
-    return
+    if len(s) >= 3:
+        if s[-3:] != 'ing': s = s + 'ing'
+        else: s = s + 'ly'
+    return s
 
 
 # E. not_bad
@@ -37,7 +40,11 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
     # your code here
-    return
+    ##use find method
+    new = s
+    if s.find("not") < s.find("bad"):
+        new = s[:s.find("not")] + "good" + s[s.find("bad")+3:]
+    return new    
 
 
 # F. front_back
@@ -49,7 +56,36 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
     # your code here
-    return
+    aLength = len(a)
+    bLength = len(b)
+
+    if aLength % 2 == 1:
+        aFront = a[0:aLength/2+1]
+    else:
+        aFront = a[0:aLength/2]
+
+    if bLength % 2 == 1:
+        bFront = b[0:bLength/2+1]
+    else: 
+        bFront = b[0:bLength/2]
+
+    if aLength % 2 == 1:
+        aBack = a[aLength/2+1:]
+    else: 
+        aBack= a[aLength/2:]
+
+    if bLength % 2 == 1:
+        bBack = b[bLength/2+1:]
+    else:
+        bBack = b[bLength/2:]
+    return aFront + bFront + aBack + bBack
+#   a_middle = len(a) / 2
+#   b_middle = len(b) / 2
+#   if len(a) % 2 == 1:  # add 1 if length is odd
+#     a_middle = a_middle + 1
+#   if len(b) % 2 == 1:
+#     b_middle = b_middle + 1 
+#   return a[:a_middle] + b[:b_middle] + a[a_middle:] + b[b_middle:]
 
 
 # Provided simple test() function used in main() to print
@@ -60,6 +96,7 @@ def test(got, expected):
     else:
         prefix = '  X '
     print('{} got: {}     expected: {}'.format(prefix, repr(got), repr(expected)))
+
 
 
 # main() calls the above functions with interesting inputs,
