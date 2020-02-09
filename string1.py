@@ -19,7 +19,7 @@ Kenzie assignment: String1
 # A. donuts
 # Given an int count of a number of donuts, return a string
 # of the form 'Number of donuts: <count>', where <count> is the number
-# passed in. However, if the count is 10 or more, then use the word 'many'
+# passed in. However, ((if)) the ((count)) is ((10 or more)), then use the word 'many'
 # instead of the actual count.
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
@@ -27,8 +27,12 @@ Kenzie assignment: String1
 
 def donuts(count):
     # your code here
-    return
-
+  if count < 10:
+    return 'Number of donuts: ' + str(count)
+  else:
+    return 'Number of donuts: many'
+ 
+###finished
 
 # B. both_ends
 # Given a string s, return a string made of the first 2
@@ -36,8 +40,18 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-    # your code here
-    return
+#     # your code here (freaking what?)
+    if len(s) < 2:
+        return ''
+## first two characters
+## last two characters
+    first_two = s[0:2]
+    last_two = s[-2:]
+    return first_two + last_two
+##finished
+
+
+
 
 
 # C. fix_start
@@ -51,7 +65,9 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
     # your code here
-    return
+
+    return s[0] + s[1:].replace(s[0],'*')
+##finished
 
 
 # D. MixUp
@@ -63,7 +79,11 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     # your code here
-    return
+  c=a[:2]
+  d=b[:2]
+  a=a.replace(a[:2],d)
+  b=b.replace(b[:2],c)
+  return str(a)+' ' + str (b)
 
 
 # Provided simple test() function used in main() to print
